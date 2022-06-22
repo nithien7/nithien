@@ -227,12 +227,12 @@ async function loadInfo() {
     priceType = 'MATIC';
   }
   const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
-  const pricePerMint = document.getElementById("pricePerMint");
+  const pricePerMint1 = document.getElementById("pricePerMint1");
   const maxPerMint = document.getElementById("maxPerMint");
   const totalSupply = document.getElementById("totalSupply");
   const mintInput = document.getElementById("mintInput");
   
-  pricePerMint.innerText = `${price} ${priceType}`;
+  pricePerMint1.innerText = `${price} ${priceType}`;
   maxPerMint.innerText = `${info.deploymentConfig.tokensPerMint}`;
   totalSupply.innerText = `${info.deploymentConfig.maxSupply}`;
   mintInput.setAttribute("max", info.deploymentConfig.tokensPerMint);
