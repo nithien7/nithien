@@ -228,7 +228,7 @@ async function loadInfo() {
   }
   const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
   const pricePerMint = document.getElementById("pricePerMint");
-  const maxPerMint = document.getElementById("maxPerMint");
+  const maxPerMint = document.getElementsByClassName("Wall");
   const totalSupply = document.getElementById("totalSupply");
   const mintInput = document.getElementById("mintInput");
   
