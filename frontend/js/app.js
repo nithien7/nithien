@@ -227,8 +227,8 @@ async function loadInfo() {
     priceType = 'MATIC';
   }
   const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
-  const pricePerMint = document.getElementById("pricePerMint");
-  const maxPerMint = document.getElementsByClassName("Wall")[0];
+  const pricePerMint = 0.07
+  const maxPerMint = 2;
   const totalSupply = document.getElementById("totalSupply");
   const mintInput = document.getElementById("mintInput");
   
@@ -242,7 +242,7 @@ async function loadInfo() {
   // MINT INPUT
   const mintIncrement = document.getElementById("mintIncrement");
   const mintDecrement = document.getElementById("mintDecrement");
-  const setQtyMax = document.getElementById("setQtyMax");
+  const setQtyMax = 2;
   const min = mintInput.attributes.min.value || false;
   const max = mintInput.attributes.max.value || false;
   mintDecrement.onclick = () => {
