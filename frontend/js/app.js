@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     autoplay: true,
     direction: 'ttb',
     height: "calc(100vh - 90px)",
-    width: '12vw',
+    width: '15vw',
     autoHeight: true,
   });
   splide.mount();
@@ -227,22 +227,20 @@ async function loadInfo() {
     priceType = 'MATIC';
   }
   const price = web3.utils.fromWei(info.deploymentConfig.mintPrice, 'ether');
-  const pricePerMint = 0.07
-  const maxPerMint = 2;
+  const pricePerMint = document.getElementById("pricePerMint");
+  const maxPerMint = document.getElementById("maxPerMint");
   const totalSupply = document.getElementById("totalSupply");
   const mintInput = document.getElementById("mintInput");
   
   pricePerMint.innerText = `${price} ${priceType}`;
   maxPerMint.innerText = `${info.deploymentConfig.tokensPerMint}`;
-  console.log("Max per mint",maxPerMint.innerHTML);
-  console.log("Max per mint",maxPerMint)
   totalSupply.innerText = `${info.deploymentConfig.maxSupply}`;
   mintInput.setAttribute("max", info.deploymentConfig.tokensPerMint);
 
   // MINT INPUT
   const mintIncrement = document.getElementById("mintIncrement");
   const mintDecrement = document.getElementById("mintDecrement");
-  const setQtyMax = 2;
+  const setQtyMax = document.getElementById("setQtyMax");
   const min = mintInput.attributes.min.value || false;
   const max = mintInput.attributes.max.value || false;
   mintDecrement.onclick = () => {
@@ -285,7 +283,7 @@ function setTotalPrice() {
     mintInput.disabled = true;
     return;
   }
-  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue);
+  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue); // total price = price*quantity
   
   let priceType = '';
   if(chain === 'rinkeby') {
@@ -326,7 +324,7 @@ async function mint() {
           countdownContainer.classList.add('hidden');
           mintedContainer.classList.remove('hidden');
         }
-        console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
+        console.log("Minted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
         mainText.innerText = mint_failed;
@@ -363,7 +361,7 @@ async function mint() {
           countdownContainer.classList.add('hidden');
           mintedContainer.classList.remove('hidden');
         }
-        console.log("Minuted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
+        console.log("Minted successfully!", `Transaction Hash: ${presaleMintTransaction.transactionHash}`);
       } else {
         const mainText = document.getElementById("mainText");
         mainText.innerText = mint_failed;
