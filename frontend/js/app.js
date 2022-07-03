@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     autoplay: true,
     direction: 'ttb',
     height: "calc(100vh - 90px)",
-    width: '15vw',
+    width: '30vw',
     autoHeight: true,
   });
   splide.mount();
@@ -106,6 +106,8 @@ async function checkChain() {
     chainId = 4;
   } else if(chain === 'polygon') {
     chainId = 137;
+  } else if(chain === 'ethereum') {
+    chainId = 1;
   }
   if (window.ethereum.networkVersion !== chainId) {
     try {
@@ -221,7 +223,7 @@ async function loadInfo() {
   }, 1000);
 
   let priceType = '';
-  if(chain === 'rinkeby') {
+  if(chain === 'rinkeby' || chain === 'ethereum') {
     priceType = 'ETH';
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
@@ -283,10 +285,10 @@ function setTotalPrice() {
     mintInput.disabled = true;
     return;
   }
-  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue); // total price = price*quantity
+  const totalPriceWei = BigInt(info.deploymentConfig.mintPrice) * BigInt(mintInputValue);
   
   let priceType = '';
-  if(chain === 'rinkeby') {
+  if(chain === 'rinkeby' || chain === 'ethereum') {
     priceType = 'ETH';
   } else if (chain === 'polygon') {
     priceType = 'MATIC';
