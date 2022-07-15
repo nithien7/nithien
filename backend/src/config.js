@@ -43,7 +43,7 @@ const layerConfigurations = [
       ],
   },   
   {
-    growEditionSizeTo: 4,
+    growEditionSizeTo: 3,
     layersOrder: [
       
       { name: "cyclops" },
@@ -55,7 +55,7 @@ const layerConfigurations = [
       ],
   },   
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 4,
     layersOrder: [
       
       { name: "cyclops" },    
@@ -65,7 +65,7 @@ const layerConfigurations = [
       ],
   },   
   {
-    growEditionSizeTo: 6,
+    growEditionSizeTo: 4,
     layersOrder: [
       
       { name: "Head With Jacket 4" },
@@ -74,7 +74,7 @@ const layerConfigurations = [
       ],
   },   
   {
-    growEditionSizeTo: 7,
+    growEditionSizeTo: 5,
     layersOrder: [
       {name:"gun 5"},
       { name: "head 5" },
@@ -84,7 +84,7 @@ const layerConfigurations = [
       ],
   },   
   {
-    growEditionSizeTo: 8,
+    growEditionSizeTo:5,
     layersOrder: [
       
       { name: "head6" },
@@ -95,7 +95,7 @@ const layerConfigurations = [
   }, 
       
   {
-    growEditionSizeTo: 9,
+    growEditionSizeTo: 6,
     layersOrder: [
       
       { name: "head 7" },
